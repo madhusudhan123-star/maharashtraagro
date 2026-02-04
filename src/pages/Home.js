@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import voter from '../assets/voter.jpg'
 
 export default function Home({ lang = "en" }) {
-  const [showPopup, setShowPopup] = React.useState(true);
+
   const [showVoterList, setShowVoterList] = React.useState(false);
   const [zoomedImg, setZoomedImg] = React.useState(false);
   function handleZoomOpen() { setZoomedImg(true); }
@@ -12,9 +12,7 @@ export default function Home({ lang = "en" }) {
 
 
 
-  function handleClosePopup() {
-    setShowPopup(false);
-  }
+
   function handleShowVoterList() {
     setShowVoterList(true);
   }
@@ -48,51 +46,7 @@ export default function Home({ lang = "en" }) {
   
   return (
     <>
-      {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 text-center relative animate-fade-in-up overflow-y-auto" style={{ maxHeight: '90vh' }}>
-            <button
-              onClick={handleClosePopup}
-              className="absolute top-3 right-3 text-gray-400 hover:text-green-600 text-2xl font-bold"
-              aria-label="Close"
-            >&times;</button>
-            <div className="text-5xl mb-4">🗳️</div>
-            <h3 className="text-2xl font-bold mb-2 text-green-700">
-              {isMr ? "मतदानाला सुरूवात झालेली आहे!" : "Voting Has Started!"}
-            </h3>
-            <p className="text-gray-700 mb-3">
-              {isMr
-                ? "आपला मतदानाचा हक्क नक्की वापरा. मतदान खुलं आहे!"
-                : "The voting process has begun. Cast your vote now!"}
-            </p>
-            {zoomedImg && (
-              <div
-                className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-60 cursor-zoom-out"
-                onClick={handleZoomClose}
-                aria-label="Close zoomed image"
-              >
-                <img
-                  src={voter}
-                  alt="Zoomed Election Program"
-                  className="max-w-full max-h-[100vh] rounded-lg shadow-lg"
-                />
-              </div>
-            )}
-            <img
-              src={voter}
-              alt="Election Program"
-              className="rounded-lg shadow mb-4 w-full max-h-[320px] object-contain mx-auto cursor-zoom-in"
-              onClick={handleZoomOpen}
-            />
-            <a
-              href={`https://drive.google.com/file/d/1gPucSLgZtKzdqTvJmTxWreLIoYddgPzt/view?usp=sharing`}
-              className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-all duration-300 mt-2"
-            >
-              {isMr ? "मतदार यादी पहा" : "Show Voter List"}
-            </a>
-          </div>
-        </div>
-      )}
+
       
       {/* Add custom CSS for animations */}
       <style jsx>{`
@@ -186,47 +140,15 @@ export default function Home({ lang = "en" }) {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative">
           <div className="absolute inset-0 bg-green-50/30"></div>
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Text */}
-              <div className="animate-on-scroll">
-                <div className="inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
-                  {isMr ? "आमच्याबद्दल" : "About Us"}
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 leading-tight">
-                  {isMr 
-                    ? "शेतकऱ्यांचे सशक्तीकरण" 
-                    : "Empowering Farmers"}
-                </h2>
-                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  {isMr
-                    ? "शेतकऱ्यांना आधुनिक तंत्रज्ञान व बाजारपेठ जोडणी उपलब्ध करून देणे हा आमचा उद्देश. आमच्या सहकारी संस्थेमार्फत शाश्वत शेती आणि ग्रामीण अर्थव्यवस्था मजबूत करणे."
-                    : "Our mission is to empower farmers with modern techniques, quality resources, and better market access through our cooperative platform, promoting sustainable agriculture and strengthening rural economy."}
-                </p>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gradient-bg text-white px-8 py-4 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold"
-                >
-                  {isMr ? "अधिक जाणून घ्या" : "Learn More"}
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              {/* Enhanced Image Placeholder */}
-              <div className="animate-on-scroll">
-                <div className="relative">
-                  <div className="h-80 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl shadow-2xl flex items-center justify-center floating relative overflow-hidden">
-                    <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
-                    <div className="relative z-10 text-center text-white">
-                      <div className="text-6xl mb-4">🌾</div>
-                      <span className="text-xl font-medium">Farming Excellence</span>
-                    </div>
-                    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full opacity-20"></div>
-                    <div className="absolute -top-4 -left-4 w-16 h-16 bg-blue-400 rounded-full opacity-20"></div>
-                  </div>
-                </div>
-              </div>
+            <div className="w-full h-[800px]">
+               <iframe
+                src="https://drive.google.com/file/d/1gPucSLgZtKzdqTvJmTxWreLIoYddgPzt/preview"
+                width="100%"
+                height="100%"
+                title="Voter List PDF"
+                className="rounded-lg shadow-2xl"
+                allow="autoplay"
+              ></iframe>
             </div>
           </div>
         </section>
