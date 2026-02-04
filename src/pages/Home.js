@@ -85,7 +85,7 @@ export default function Home({ lang = "en" }) {
               onClick={handleZoomOpen}
             />
             <a
-              href={`https://drive.google.com/drive/folders/1c2gIlh0JzY_UuZHmCkTf9XUORGoL8adW?usp=sharing`}
+              href={`https://drive.google.com/file/d/1gPucSLgZtKzdqTvJmTxWreLIoYddgPzt/view?usp=sharing`}
               className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-all duration-300 mt-2"
             >
               {isMr ? "मतदार यादी पहा" : "Show Voter List"}
